@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useEffect, useState } from "react";
 import Header from "./AlbumHeader";
 
 const AlbumCard = ({ text }) => {
@@ -43,6 +43,13 @@ const AlbumCard = ({ text }) => {
 };
 
 const AlbumMain = () => {
+  const [clubs, setClubs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/clubs")
+      .then((response) => response.json())
+      .then((data) => setClubs(data));
+  }, []);
   return (
     <main>
       <section className="py-5 text-center container">
@@ -56,12 +63,17 @@ const AlbumMain = () => {
         </div>
       </section>
 
-      <div className="album py-5 bg-light">
-        <div className="container">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <AlbumCard text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." />
-            {/* Repeat the AlbumCard for as many cards as you have */}
-          </div>
+      <div className="container">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {clubs.map((club) => (
+            <AlbumCard
+              key={club._id}
+              title={club.title}
+              deadline={club.deadline}
+              link={club.link}
+              description={club.description}
+            />
+          ))}
         </div>
       </div>
     </main>
