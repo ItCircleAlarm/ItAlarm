@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-const Header = () => {
+const Head = () => {
   return (
     <header>
       <div className="collapse bg-dark" id="navbarHeader">
@@ -15,7 +15,7 @@ const Header = () => {
       <div className="navbar navbar-dark bg-dark shadow-sm">
         <div className="container">
           <a href="#" className="navbar-brand d-flex align-items-center">
-            <strong>ItCircleAlarm</strong>
+            <strong>asdf</strong>
           </a>
         </div>
       </div>
@@ -23,4 +23,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Head;

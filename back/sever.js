@@ -9,6 +9,7 @@ mongoose.connect("mongodb://localhost:27017/board", {
   useUnifiedTopology: true,
 });
 let db = mongoose.connection;
+
 // 동아리 게시글의 스키마를 정의합니다. 이 스키마는 MongoDB에서 각 게시글이 어떤 필드를 가질지 정의합니다.
 const clubSchema = new Schema({
   title: String,
