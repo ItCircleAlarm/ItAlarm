@@ -5,12 +5,16 @@ import AlbumCard from "./AlbumCard";
 
 const AlbumMain = () => {
   const [clubs, setClubs] = useState([]);
+  const [loading, setLoading] = useState(true); // 로딩 상태 추가
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/clubs")
-  //     .then((response) => response.json())
-  //     .then((data) => setClubs(data));
-  // }, []);
+  useEffect(() => {
+    fetch("http://localhost:3001/clubs")
+      .then((response) => response.json())
+      .then((data) => {
+        setClubs(data);
+        setLoading(false); // 데이터를 가져온 후 로딩 상태를 false로 설정
+      });
+  }, []);
   return (
     <main>
       <section className="py-5 text-center container">
@@ -33,6 +37,7 @@ const AlbumMain = () => {
               deadline={club.deadline}
               link={club.link}
               description={club.description}
+              imageUrl={club.imageUrl} // 모든 필드를 props로 전달
             />
           ))}
         </div>
