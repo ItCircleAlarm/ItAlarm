@@ -1,39 +1,35 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-const AlbumCard = ({ text }) => {
+const AlbumCard = ({ title, deadline, link, description, imageUrl }) => {
+  // props 추가
   return (
     <div className="col">
       <div className="card shadow-sm">
-        <svg
+        <img
           className="bd-placeholder-img card-img-top"
           width="100%"
           height="225"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-          aria-label="Placeholder: Thumbnail"
-          preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-        >
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#55595c" />
-          <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-            Thumbnail
-          </text>
-        </svg>
+          src={imageUrl} // 이미지 URL 추가
+          alt={title} // alt text 추가
+        />
 
         <div className="card-body">
-          <p className="card-text">{text}</p>
+          <h5>{title}</h5> {/* 동아리 제목 */}
+          <p className="card-text">{description}</p> {/* 동아리 설명 */}
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">
-              <button
-                type="button"
+              <a
+                href={link} // 동아리 사이트 링크로 변경
                 className="btn btn-sm btn-outline-secondary"
+                target="_blank" // 새 탭에서 열기
+                rel="noopener noreferrer" // 보안을 위한 설정
               >
                 사이트 들어가기
-              </button>
+              </a>
             </div>
-            <small className="text-muted">9 mins</small>
+            신청 마감날짜:
+            <small className="text-muted">{deadline}</small> {/* 마감일 */}
           </div>
         </div>
       </div>

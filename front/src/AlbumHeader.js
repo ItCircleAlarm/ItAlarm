@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+
 const Head = () => {
   return (
     <header>
@@ -13,10 +14,29 @@ const Head = () => {
         </div>
       </div>
       <div className="navbar navbar-dark bg-dark shadow-sm">
-        <div className="container">
+        <div className="container d-flex justify-content-between">
+          {" "}
+          {/* Add d-flex justify-content-between */}
           <a href="#" className="navbar-brand d-flex align-items-center">
-            <strong>asdf</strong>
+            <strong>It Circle Alarm</strong>
           </a>
+          <div className="d-flex align-items-center">
+            {" "}
+            {/* Add div for right aligned links */}
+            <a
+              href="#"
+              className="navbar-brand d-flex align-items-center ms-auto"
+            >
+              {" "}
+              {/* Add ms-auto for right alignment */}
+              정보 수정 요청
+            </a>
+            <a href="#" className="navbar-brand d-flex align-items-center ms-3">
+              {" "}
+              {/* Add margin for spacing */}
+              동아리 등록 요청
+            </a>
+          </div>
         </div>
       </div>
     </header>
